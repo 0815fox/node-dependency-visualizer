@@ -1,2 +1,3 @@
-# node-dependency-visualization
-Visualized npm dependencies in a graphviz/dot graph
+# Usage
+
+~/work/npm-dependency-dot-graph/tree.js -p @oblamatik | dot -Tsvg > node-module-dependency-tree.svg
