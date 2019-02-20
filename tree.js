@@ -22,8 +22,7 @@ function treeWalk(name, node) {
 	const version = node.version;
 	const lastDepVersion = depVersions.get(name);
 	const nodeName = `${name}\\n${version}`;
-	if (lastDepVersion !== undefined) {
-		if (lastDepVersion === version) return;
+	if (lastDepVersion !== undefined && lastDepVersion !== version) {
 		const lastDepVersionNodeName = `${name}\\n${lastDepVersion}`;
 		emit(`  "${nodeName}"[fillcolor=red]\n`);
 		emit(`  "${lastDepVersionNodeName}"[fillcolor=red]\n`);
@@ -50,7 +49,7 @@ ls.stdout.on("data", (chunk) => {
 
 ls.stdout.on("close", () => {
 	const tree = JSON.parse(data);
-	process.stdout.write(`digraph DeviceTypeHierarchy_Oblamatikproducts {
+	process.stdout.write(`strict digraph DeviceTypeHierarchy_Oblamatikproducts {
   rankdir=BT;
   compound=true;
   node[shape=record,style=filled,fillcolor=white]
