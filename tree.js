@@ -3,7 +3,8 @@
 const commandLineArgs = require('command-line-args');
 
 const optionDefinitions = [
-  { name: 'prefix', alias: 'p', type: String },
+	{ name: 'stop-treewalk-prefix', alias: 'p', type: String },
+	{ name: 'show-unprefixed-dependencies', alias: 'u', type: Boolean },
 ];
 
 const options = commandLineArgs(optionDefinitions);
@@ -32,9 +33,12 @@ function treeWalk(name, node) {
 	for (const depName in node.dependencies) {
 		const dependency = node.dependencies[depName];
 		const depNodeName = `${depName}\\n${dependency.version}`;
-		if (options.prefix !== undefined && !depName.startsWith(options.prefix)) return;
-		emit(`  "${nodeName}" -> "${depNodeName}"\n`);
-		treeWalk(depName, dependency);
+		if (options["stop-treewalk-prefix"] === undefined || depName.startsWith(options["stop-treewalk-prefix"])) {
+			emit(`  "${nodeName}" -> "${depNodeName}"\n`);
+			treeWalk(depName, dependency);
+		} else if (options["show-unprefixed-dependencies"]) {
+			emit(`  "${nodeName}" -> "${depNodeName}"\n`);
+		}
 	}
 }
 
@@ -49,7 +53,8 @@ ls.stdout.on("close", () => {
 	process.stdout.write(`digraph DeviceTypeHierarchy_Oblamatikproducts {
   rankdir=BT;
   compound=true;
-  node[shape=record,style=filled,fillcolor=white]`);
+  node[shape=record,style=filled,fillcolor=white]
+`);
 	treeWalk(tree.name, tree);
 	process.stdout.write("}\n");
 });
