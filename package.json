@@ -6,6 +6,9 @@
   "bin": "js/cli.js",
   "author": "",
   "license": "MIT",
+  "scripts": {
+    "postversion": "git push && git push --tags"
+  },
   "dependencies": {
     "command-line-args": "^5.0.2"
   },
