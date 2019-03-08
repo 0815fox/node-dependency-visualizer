@@ -1,14 +1,19 @@
 {
   "name": "node-dependency-visualizer",
   "version": "0.0.0",
-  "description": "",
+  "description": "Visualizes the dependencies of your node module in a digraph.",
   "main": "js/tree.js",
   "bin": "js/cli.js",
-  "author": "",
+  "author": "Michael Kriegel",
   "license": "MIT",
   "scripts": {
     "postversion": "git push && git push --tags"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0815fox/node-dependency-visualizer"
+  },
+  "bugs": "https://github.com/0815fox/node-dependency-visualizer/issues",
   "dependencies": {
     "command-line-args": "^5.0.2"
   },
