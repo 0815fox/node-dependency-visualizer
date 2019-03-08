@@ -1,6 +1,6 @@
 {
   "name": "node-dependency-visualizer",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Visualizes the dependencies of your node module in a digraph.",
   "main": "js/tree.js",
   "bin": "js/cli.js",
