@@ -29,6 +29,24 @@ node-dependency-visualizer emits a dot digraph, which can be piped directly into
 node-dependency-visualizer | dot -Tsvg > node-module-dependency-tree.svg
 ```
 
+![](doc/angular-all.svg)
+
+Only show packages from @angular scope:
+
+```
+node-dependency-visualizer -p @angular | dot -Tsvg > node-module-dependency-tree.svg
+```
+
+![](doc/angular-only.svg)
+
+Only show packages from @angular scope and their direct dependencies:
+
+```
+node-dependency-visualizer -p @angular -l | dot -Tsvg > node-module-dependency-tree.svg
+```
+
+![](doc/angular-and-direct-only.svg)
+
 For the windows users: I don't know how to do that in cmd.exe. Get a life! Ah, and please submit a pull request to this repository in case you found it out.
 
 ### API

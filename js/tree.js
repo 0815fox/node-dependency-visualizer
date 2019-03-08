@@ -17,7 +17,7 @@ function treeWalk(name, node, stopTreewalkPrefix, showUnprefixedDependencies) {
 		const depNodeName = `${depName}\\n${dependency.version}`;
 		if (stopTreewalkPrefix === undefined || depName.startsWith(stopTreewalkPrefix)) {
 			result += `  "${nodeName}" -> "${depNodeName}"\n`;
-			result += treeWalk(depName, dependency);
+			result += treeWalk(depName, dependency, stopTreewalkPrefix, showUnprefixedDependencies);
 		} else if (showUnprefixedDependencies) {
 			result += `  "${nodeName}" -> "${depNodeName}"\n`;
 		}
@@ -25,4 +25,12 @@ function treeWalk(name, node, stopTreewalkPrefix, showUnprefixedDependencies) {
 	return result;
 }
 
-module.exports = treeWalk;
+module.exports = function(node, stopTreewalkPrefix, showUnprefixedDependencies) {
+	return `strict digraph DeviceTypeHierarchy_Oblamatikproducts {
+	rankdir=BT;
+	compound=true;
+	node[shape=record,style=filled,fillcolor=white]
+	${treeWalk(node.name, node, stopTreewalkPrefix, showUnprefixedDependencies)}
+}
+`;
+};

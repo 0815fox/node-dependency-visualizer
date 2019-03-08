@@ -22,11 +22,5 @@ ls.stdout.on("data", (chunk) => {
 
 ls.stdout.on("close", () => {
 	const tree = JSON.parse(data);
-	process.stdout.write(`strict digraph DeviceTypeHierarchy_Oblamatikproducts {
-  rankdir=BT;
-  compound=true;
-  node[shape=record,style=filled,fillcolor=white]
-`);
-	treeWalk(tree.name, tree, options["treewalk-prefix"], options["show-leaf-dependencies"]);
-	process.stdout.write("}\n");
+	process.stdout.write(treeWalk(tree, options["treewalk-prefix"], options["show-leaf-dependencies"]));
 });
