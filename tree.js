@@ -28,7 +28,7 @@ function treeWalk(name, node) {
 		emit(`  "${lastDepVersionNodeName}"[fillcolor=red]\n`);
 		emit(`"${lastDepVersionNodeName}" -> "${nodeName}"[color=red arrowhead=none]`);
 	}
-	depVersions.set(name, version);
+	if (version !== undefined) depVersions.set(name, version);
 	for (const depName in node.dependencies) {
 		const dependency = node.dependencies[depName];
 		const depNodeName = `${depName}\\n${dependency.version}`;
