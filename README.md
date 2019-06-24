@@ -20,8 +20,10 @@ npm install --save-dev node-dependency-visualizer
 
 node-dependency-visualizer has the following options:
 
---treewalk-prefix (-p) PREFIX The tree walk only continues on modules, that start with PREFIX.
---show-leaf-dependencies (-l) The leaf dependencies (those on which recursion stops) are only emitted when this option is set.
+| Option | Description |
+| :----- | :---------- |
+| --treewalk-prefix (-p) PREFIX | The tree walk only continues on modules, that start with PREFIX. |
+| --show-leaf-dependencies (-l) | The leaf dependencies (those on which recursion stops) are only emitted when this option is set. |
 
 node-dependency-visualizer emits a dot digraph, which can be piped directly into graphviz dot.
 
