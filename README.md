@@ -7,18 +7,18 @@ node-dependency-visualizer is a tool, that visualizes the dependencies of your n
 To use it as a cli tool install it globally, else you can install it as dev dependency in your package.
 
 ```
-npm install -g node-dependency-tree
+npm install -g node-dependency-visualizer
 ```
 
 ```
-npm install --save-dev node-dependency-tree
+npm install --save-dev node-dependency-visualizer
 ```
 
 ## Usage
 
 ### CLI
 
-node-dependency-tree has the following options:
+node-dependency-visualizer has the following options:
 
 --treewalk-prefix (-p) PREFIX The tree walk only continues on modules, that start with PREFIX.
 --show-leaf-dependencies (-l) The leaf dependencies (those on which recursion stops) are only emitted when this option is set.
