@@ -24,6 +24,7 @@ node-dependency-visualizer has the following options:
 | :----- | :---------- |
 | --treewalk-prefix (-p) PREFIX | The tree walk only continues on modules, that start with PREFIX. |
 | --show-leaf-dependencies (-l) | The leaf dependencies (those on which recursion stops) are only emitted when this option is set. |
+| --no-highlight-conflicting-versions (-c) | Does not highlight / cluster different versions of the same module. |
 
 node-dependency-visualizer emits a dot digraph, which can be piped directly into graphviz dot.
 
