@@ -12,7 +12,7 @@ const optionDefinitions = [
 
 const options = commandLineArgs(optionDefinitions);
 
-const { spawn } = require( 'child_process' );
+const { spawn } = require( 'cross-spawn' );
 const ls = spawn( 'npm', [ 'ls', '--json' ] );
 
 let data = "";
