@@ -15,9 +15,10 @@
   },
   "bugs": "https://github.com/0815fox/node-dependency-visualizer/issues",
   "dependencies": {
-    "command-line-args": "^5.0.2"
+    "command-line-args": "^5.1.1",
+    "cross-spawn": "7.0.3"
   },
   "devDependencies": {
-    "@angular/cli": "^7.3.5"
+    "@angular/cli": "^11.2.9"
   }
 }
