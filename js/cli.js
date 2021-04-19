@@ -13,7 +13,7 @@ const optionDefinitions = [
 const options = commandLineArgs(optionDefinitions);
 
 const { spawn } = require( 'cross-spawn' );
-const ls = spawn( 'npm', [ 'ls', '--json' ] );
+const ls = spawn( 'npm', [ 'ls', '--json', '--all' ] );
 
 let data = "";
 
